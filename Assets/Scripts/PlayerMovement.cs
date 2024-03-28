@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     private float horizontal;
     private float vertical;
+    public bool HasKey = false;
 
     void Update()
     {
@@ -17,8 +18,10 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         transform.Translate(Vector2.up * vertical * moveSpeed * Time.deltaTime);
 
+    }
 
-
-
+    public void GetKey()
+    {
+        HasKey = true;
     }
 }
