@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Key : MonoBehaviour
+public class Key2 : MonoBehaviour
 {
-    //on peut aller chercher des fonction dans d'autres codes mdr je savais po
+    //on peut aller chercher des fonction dans d'autres codes
     public PlayerMovement getKey;
-    public bool PlayerHasKey;
+    public bool PlayerHasRedKey;
 
     public void Awake()
     {
         //getkey va aller chercher le GO dans le scrpt de playermovement
         getKey = GameObject.FindObjectOfType<PlayerMovement>();
-        PlayerHasKey = getKey.HasKey;
+        PlayerHasRedKey = getKey.HasRedKey;
 
-        if (PlayerHasKey == true)
+        if (PlayerHasRedKey == true)
         {
             Destroy(this.gameObject);
         }
@@ -26,10 +26,9 @@ public class Key : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //on active la fonction du joueur, la key devient true
-            collision.gameObject.GetComponent<PlayerMovement>().GetKey();
+            collision.gameObject.GetComponent<PlayerMovement>().GetRedKey();
             Destroy(this.gameObject);
         }
     }
-
 
 }

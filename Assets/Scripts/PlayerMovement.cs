@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     private float horizontal;
     private float vertical;
-    public bool HasKey = false;
+    public bool HasYellowKey = false;
+    public bool HasRedKey = false;
 
     void Update()
     {
@@ -20,8 +21,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void GetKey()
+    public void GetYellowKey()
     {
-        HasKey = true;
+        HasYellowKey = true;
+    }
+
+    public void GetRedKey()
+    {
+        HasRedKey = true;
     }
 }
