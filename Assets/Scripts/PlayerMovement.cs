@@ -6,10 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float moveSpeed;
+    public float AttackLenght;
+
     private float horizontal;
     private float vertical;
+    private float AttackCounter;
+
     public bool HasYellowKey = false;
     public bool HasRedKey = false;
+    public bool HasSpear = false;
+
+    private bool isAttacking;
+
+    public GameObject LookUp;
+    public GameObject LookRight;
+    public GameObject LookLeft;
+    public GameObject LookDown;
+
+
 
     void Update()
     {
@@ -19,6 +33,73 @@ public class PlayerMovement : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         transform.Translate(Vector2.up * vertical * moveSpeed * Time.deltaTime);
 
+
+        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.UpArrow))
+        {
+
+            LookUp.GetComponent<BoxCollider2D>().enabled = true;
+            isAttacking = true;
+        }
+        
+        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.DownArrow))
+        {
+
+            LookDown.GetComponent<BoxCollider2D>().enabled = true;
+            isAttacking = true;
+        }
+        
+        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.RightArrow))
+        {
+
+            LookRight.GetComponent<BoxCollider2D>().enabled = true;
+            isAttacking = true;
+        }
+        
+        if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftArrow))
+        {
+
+            LookLeft.GetComponent<BoxCollider2D>().enabled = true;
+            isAttacking = true;
+        }
+
+
+
+        if (isAttacking)
+        {
+            if (AttackCounter <= 0)
+            {
+                AttackCounter = AttackLenght;
+            }
+            isAttacking = false;
+        }
+
+        if (AttackCounter > 0)
+        {
+            AttackCounter -= Time.fixedDeltaTime;
+
+            if (AttackCounter < 0)
+            {
+                LookUp.GetComponent<BoxCollider2D>().enabled = false;
+                LookRight.GetComponent<BoxCollider2D>().enabled = false;
+                LookDown.GetComponent<BoxCollider2D>().enabled = false;
+                LookLeft.GetComponent<BoxCollider2D>().enabled = false;
+            }
+        }
+
+
+
+
+
+
+    }
+
+    private void Awake()
+    {
+
+        LookUp.GetComponent<BoxCollider2D>().enabled = false;
+        LookRight.GetComponent<BoxCollider2D>().enabled = false;
+        LookDown.GetComponent<BoxCollider2D>().enabled = false;
+        LookLeft.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void GetYellowKey()

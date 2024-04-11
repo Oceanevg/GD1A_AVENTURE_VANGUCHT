@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3598674154433871833}
   - component: {fileID: 593779914158523122}
   - component: {fileID: 2530547124469426878}
+  - component: {fileID: 2806144246928549782}
   m_Layer: 0
   m_Name: Ennemi
-  m_TagString: Untagged
+  m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,3 +175,16 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 5
   distanceBetween: 15
+--- !u!114 &2806144246928549782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8018999468865880712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f309b223ca75b4c9544b0a2deb09fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToDestroy: {fileID: 0}
