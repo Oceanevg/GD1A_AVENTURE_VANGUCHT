@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
     public bool HasRedKey = false;
     public bool HasSpear = false;
 
-    private bool isAttacking;
-
+    public bool isAttacking;
     public GameObject LookUp;
     public GameObject LookRight;
     public GameObject LookLeft;
     public GameObject LookDown;
+
+    //public Vector2 currentLookingPos;
+
+    public GameObject attaqueMelee;
 
 
 
@@ -39,6 +42,9 @@ public class PlayerMovement : MonoBehaviour
 
             LookUp.GetComponent<BoxCollider2D>().enabled = true;
             isAttacking = true;
+           // currentLookingPos = LookUp.transform.position;
+            //GameObject attaque_hitbox = Instantiate(attaqueMelee, currentLookingPos, Quaternion.identity);
+
         }
         
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.DownArrow))
@@ -46,20 +52,29 @@ public class PlayerMovement : MonoBehaviour
 
             LookDown.GetComponent<BoxCollider2D>().enabled = true;
             isAttacking = true;
+            //currentLookingPos = LookDown.transform.position;
+            //GameObject attaque_hitbox = Instantiate(attaqueMelee, currentLookingPos, Quaternion.identity);
+
         }
-        
+
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.RightArrow))
         {
 
             LookRight.GetComponent<BoxCollider2D>().enabled = true;
             isAttacking = true;
+            //currentLookingPos = LookRight.transform.position;
+           // GameObject attaque_hitbox = Instantiate(attaqueMelee, currentLookingPos, Quaternion.identity);
+
         }
-        
+
         if (Input.GetMouseButtonDown(0) && Input.GetKey(KeyCode.LeftArrow))
         {
 
             LookLeft.GetComponent<BoxCollider2D>().enabled = true;
             isAttacking = true;
+            //currentLookingPos = LookLeft.transform.position;
+            //GameObject attaque_hitbox = Instantiate(attaqueMelee, currentLookingPos, Quaternion.identity);
+
         }
 
 
@@ -86,12 +101,22 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-
-
-
-
-
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ennemi")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
+
+
+
+
 
     private void Awake()
     {
@@ -111,4 +136,6 @@ public class PlayerMovement : MonoBehaviour
     {
         HasRedKey = true;
     }
+
+   
 }

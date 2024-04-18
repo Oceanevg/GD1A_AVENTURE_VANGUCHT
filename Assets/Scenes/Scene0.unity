@@ -309,7 +309,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.6560326
+  orthographic size: 10.643585
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8050,10 +8050,13 @@ MonoBehaviour:
   HasYellowKey: 0
   HasRedKey: 0
   HasSpear: 0
+  isAttacking: 0
   LookUp: {fileID: 743460866}
   LookRight: {fileID: 1825908151}
   LookLeft: {fileID: 1448038053}
   LookDown: {fileID: 7690954}
+  currentLookingPos: {x: 0, y: 0}
+  attaqueMelee: {fileID: 4740894798410214096, guid: f2162d0a879159e4a81999ce0c73fa04, type: 3}
 --- !u!50 &1400410113
 Rigidbody2D:
   serializedVersion: 4
