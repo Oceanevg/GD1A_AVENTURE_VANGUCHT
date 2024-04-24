@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public bool HasYellowKey = false;
     public bool HasRedKey = false;
     public bool HasSpear = false;
-
     public bool isAttacking;
+
     public GameObject LookUp;
     public GameObject LookRight;
     public GameObject LookLeft;
@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
+   //une fois l'attaque passée, les hitbox vont s'enlever de nouveau
 
     private void Awake()
     {
@@ -127,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         LookLeft.GetComponent<BoxCollider2D>().enabled = false;
     }
 
+    //c'est pour savoir si on a recuperé les cristaux, alias les clés des portails, ça va etre renvoyé au scipt clé
     public void GetYellowKey()
     {
         HasYellowKey = true;
