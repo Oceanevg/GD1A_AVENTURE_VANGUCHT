@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnnemiDeath : MonoBehaviour
 {
+
+
     public GameObject objectToDestroy;
     public GameObject loot;
 

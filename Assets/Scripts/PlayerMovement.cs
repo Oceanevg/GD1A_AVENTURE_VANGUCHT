@@ -12,9 +12,10 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private float AttackCounter;
 
+    
     public bool HasYellowKey = false;
     public bool HasRedKey = false;
-    public bool HasSpear = false;
+    public bool HasLance = false;
     public bool isAttacking;
 
     public GameObject LookUp;
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     //public Vector2 currentLookingPos;
 
-    public GameObject attaqueMelee;
+    //public GameObject attaqueMelee;
 
 
 
