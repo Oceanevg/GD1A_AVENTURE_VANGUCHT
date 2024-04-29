@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ennemi")
         {
-            Destroy(gameObject);
+           Destroy(gameObject);
         }
     }
 
